@@ -1,0 +1,23 @@
+{% embed 'base.html.twig' with {'title': 'Accueil', 'tweetsPerRow' : 3} %}
+
+{% block body %}
+
+    {% for tweet in tweets %}
+        {% if loop.index0 % tweetsPerRow == 0 %}
+            <div class="row">
+        {% endif %}
+                <div class="col s12 m12 l4">
+                    {% embed 'template/tweet.html.twig' %}{% endembed %}
+                </div>
+        {% if loop.index % tweetsPerRow == 0 %}
+            </div>
+        {% endif %}
+    {% endfor %}
+
+
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% endembed %}
