@@ -1,13 +1,13 @@
 <div class="card large">
     <div class="card-image">
-        <img src="{{ tweet.entities.media[0].media_url }}">
+        <img src="{{ tweet.imageUrl }}">
         {#<span class="card-title">Titre de carte</span>#}
     </div>
     <div class="card-content">
-        <p>Je suis une carte toute simple. Je suis très forte quand il est question de contenir des petites informations. Je suis pratique car je demande peu de configuration afin de fonctionner correctement.</p>
+        <p>{{ tweet.title | raw }}</p>
     </div>
     <div class="card-action">
-        <a href="#">Ceci est un lien</a>
-        <a href="#">Ceci est un lien</a>
+        <a class="startup" href="{{ tweet.url }}">{{ tweet.mentions|join |default("Read More...")}}</a>
+        <div class="category">{{ tweet.category|upper }}</div>
     </div>
 </div>

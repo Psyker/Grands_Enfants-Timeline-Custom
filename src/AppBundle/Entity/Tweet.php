@@ -260,7 +260,10 @@ class Tweet
      */
     public function getTitle()
     {
-        return $this->title;
+        $finalTitle = preg_replace('[http\S+]', '',$this->title);
+        $finalTitle = preg_replace('/#(\w+)/', '<a href="/hashtag/$1">#$1</a>', $finalTitle);
+        $finalTitle = preg_replace('/@(\w+)/', '', $finalTitle);
+        return $finalTitle;
     }
 
     /**

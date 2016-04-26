@@ -3436,13 +3436,13 @@ input[type=range] + .thumb {
 
 @media only screen and (min-width: 601px) {
   .container {
-    width: 85%;
+    width: 90%;
   }
 }
 
 @media only screen and (min-width: 993px) {
   .container {
-    width: 70%;
+    width: 90%;
   }
 }
 
@@ -5037,6 +5037,7 @@ button.btn-floating {
 .dropdown-content {
   background-color: #fff;
   margin: 0;
+  margin-top: 64px;
   display: none;
   min-width: 100px;
   max-height: 650px;

@@ -1,4 +1,31 @@
-.container.offset {
-  margin-top: 54px; }
+.card.large {
+  height: 400px
+}
 
-/*# sourceMappingURL=app.css.map */
+.category{
+  float: right;
+    font-size: 13px;
+  color: #cacaca;
+}
+
+.category::before{
+    font-family: FontAwesome;
+    content: '\f02b';
+    margin-right: 10px;
+}
+a.startup {
+    font-size: 13px;
+}
+
+.startup::before {
+    font-family: FontAwesome;
+    content: '\f1ad';
+    margin-right: 10px;
+
+}
+
+h1{
+    font-size: 30px;
+    text-align: center;
+}
+

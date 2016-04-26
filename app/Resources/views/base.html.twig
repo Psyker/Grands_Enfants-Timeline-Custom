@@ -4,14 +4,21 @@
     <meta charset="UTF-8"/>
     <title>{% block title %}Twitter App | {{ title }}{% endblock %}</title>
     <link rel="stylesheet" href="{{ asset('style/materialize.css') }}">
+    <link rel="stylesheet" href="{{ asset('style/font-awesome.css') }}">
+    <link rel="stylesheet" href="{{ asset('style/app.css') }}">
+
     {% block stylesheets %}{% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
 </head>
 <body>
-<nav class="light-blue lighten-1" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Logo</a>
-        <ul class="right hide-on-med-and-down">
-            <li><a href="#">Navbar Link</a></li>
+            <ul id="dropdown1" class="dropdown-content">
+                {{ render(controller('AppBundle:Default:getAllCategories')) }}
+            </ul>
+<nav class="orange-text.text-accent-2" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="{{ path('homepage') }}" class="brand-logo center">Grands_enfants</a>
+        <ul class="left hide-on-med-and-down">
+            <li><a class="dropdown-button" href="#" data-activates="dropdown1">Categories<i class="fa fa-caret-down right"></i></a></li>
+            <li><a href="#">Statistics</a></li>
         </ul>
 
         <ul id="nav-mobile" class="side-nav">
@@ -27,12 +34,12 @@
     {% block body %}{% endblock %}
 </div>
 
-<footer class="page-footer orange">
+<footer class="page-footer">
     <div class="container">
         <div class="row">
             <div class="col l6 s12">
-                <h5 class="white-text">Company Bio</h5>
-                <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+                <h5 class="white-text">Grands_enfants</h5>
+                <p class="grey-text text-lighten-4">Exercice réalisé dans le cadre de l'obtention d'un stage..</p>
 
 
             </div>
