@@ -44,9 +44,11 @@ class DefaultController extends Controller
                 $myTweet->setHashtags($hashtags);
                 $myTweet->setTitle(str_replace('[' . $category . '] ', '', $tweet->text));
                 $myTweet->setUrl($tweet->entities->urls[0]->expanded_url);
-                if ($this->getDoctrine()->getRepository('AppBundle:Tweet')->findOneBy(['imageUrl' => $myTweet->getImageUrl()]) == null) {
-                    $this->getDoctrine()->getManager()->persist($myTweet);
-                    $this->getDoctrine()->getManager()->flush();
+                if ($this->getDoctrine()->getRepository('AppBundle:Tweet')->findOneBy(['imageUrl' => $myTweet->getImageUrl()]) == null ||
+                    $tweet->retweet_count != $this->getDoctrine()->getRepository('AppBundle:Tweet')->findOneBy(['createdAt' => new \DateTime($tweet->created_at)])->getRetweets() ||
+                    $tweet->favorite_count != $this->getDoctrine()->getRepository('AppBundle:Tweet')->findOneBy(['createdAt' => new \DateTime($tweet->created_at)])->getLikes()) {
+                        $this->getDoctrine()->getManager()->persist($myTweet);
+                        $this->getDoctrine()->getManager()->flush();
                 }
             }
         }
