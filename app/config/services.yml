@@ -13,3 +13,7 @@ services:
         arguments:
             - "LHJw9PxgKB7OSLxykLS9A"
             - "nn1T6NcLi7QC8lNC4MjjBTvXLGzl6GtspPSir5NnBU"
+    ago.twig.extension:
+      class: AppBundle\Twig\Extension\DateTimeAgoExtension
+      tags:
+        - { name: twig.extension }

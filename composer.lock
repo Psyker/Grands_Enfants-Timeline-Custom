@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "bcb1efb745b324d8082eea71f40ce87a",
-    "content-hash": "c9f7a3fe4cc91aadc3dc29ffd796c774",
+    "hash": "544f41654d889b97074b141368c17d95",
+    "content-hash": "d0b81a665a172f89b7b61bf6642a2efb",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -1249,6 +1249,45 @@
             ],
             "description": "A security checker for your composer.lock",
             "time": "2015-11-07 08:07:40"
+        },
+        {
+            "name": "smirik/php-datetime-ago",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/smirik/php-datetime-ago.git",
+                "reference": "9a4cdbe1855b2bf9d0627b287eefa2b23ecf0b39"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/smirik/php-datetime-ago/zipball/9a4cdbe1855b2bf9d0627b287eefa2b23ecf0b39",
+                "reference": "9a4cdbe1855b2bf9d0627b287eefa2b23ecf0b39",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "phpspec/phpspec": "2.0.*@dev"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Smirik\\PHPDateTimeAgo\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Evgeny Smirnov",
+                    "email": "smirik@gmail.com"
+                }
+            ],
+            "description": "How much time ago in text format",
+            "time": "2015-09-08 16:53:58"
         },
         {
             "name": "swiftmailer/swiftmailer",

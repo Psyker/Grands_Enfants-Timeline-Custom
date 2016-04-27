@@ -1,12 +1,17 @@
 <div class="card animated fadeInLeft">
     <div class="card-image">
+        <div class="metadata">
+            <span class="retweets">{{ tweet.retweets }}</span>
+            <span class="likes">{{ tweet.likes }}</span>
+        </div>
         <img src="{{ tweet.imageUrl }}">
     </div>
     <div class="card-content">
-        <p>{{ tweet.title | raw }}</p>
+        <p>{{ tweet.title | raw }} - <span class="tweet-date">{{ tweet.createdAt|ago }}</span></p>
     </div>
     <div class="card-action">
         <a class="startup" href="{{ tweet.url }}">{{ tweet.mentions|join |default("Read More...")}}</a>
         <a class="category" href="{{ path('view_by_category', {'category': tweet.category|lower }) }}">{{ tweet.category|upper }}</a>
+        <a class="open-in-twitter" title="Open in Twitter" href="{{ tweet.tweetUrl }}"><i class="fa fa-external-link"></i></a>
     </div>
 </div>

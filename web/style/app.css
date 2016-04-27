@@ -24,7 +24,7 @@ a.category {
 .category::before {
     font-family: FontAwesome;
     content: '\f02b';
-    margin-right: 10px;
+    margin-right: 7px;
 }
 
 a.startup {
@@ -55,4 +55,48 @@ a.hashtag:hover {
     color: white;
     background: #467d92;
     padding: 20px 60px;
+}
+
+.metadata {
+    color: #ffcf93;
+    padding: 5px 20px;
+    background: rgba(0, 0, 0, 0.43);
+    position: absolute;
+    z-index: 10;
+    top: 15px;
+    left: 15px;
+
+}
+
+.metadata span:first-child {
+    margin-right: 10px;
+}
+
+.metadata span.retweets::before {
+    font-family: FontAwesome;
+    content: '\f079';
+    margin-right: 5px;
+}
+
+.metadata span.likes::before {
+    font-family: FontAwesome;
+    content: '\f004';
+    margin-right: 5px;
+
+}
+
+span.retweets, span.likes {
+    font-family: "Roboto", sans-serif;
+}
+
+.tweet-date {
+    color: rgba(0, 0, 0, 0.28);
+    font-family: "Roboto Cn", 'Roboto', 'sans-serif';
+    font-size: 14px;
+}
+
+.open-in-twitter {
+    float: right;
+    color: #cacaca !important;
+
 }

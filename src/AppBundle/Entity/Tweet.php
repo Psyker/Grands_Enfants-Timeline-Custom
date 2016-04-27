@@ -29,6 +29,13 @@ class Tweet
     private $imageUrl;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="tweet_url", type="text")
+     */
+    private $tweetUrl;
+
+    /**
      * @var array
      *
      * @ORM\Column(name="mentions", type="simple_array", nullable=true)
@@ -260,10 +267,14 @@ class Tweet
      */
     public function getTitle()
     {
-        $finalTitle = preg_replace('[http\S+]', '',$this->title);
-        $finalTitle = preg_replace('/#(\w+)/', '<a class="hashtag" href="/hashtag/$1">#$1</a>', $finalTitle);
-        $finalTitle = preg_replace('/by @(\w+)|@(\w+)/', '', $finalTitle);
-        return $finalTitle;
+        return $this->tweetifyText($this->title);
+    }
+
+    private function tweetifyText(&$text){
+        $text = preg_replace('[http\S+]', '',$this->title);
+        $text = preg_replace('/#(\w+)/', '<a class="hashtag" href="/hashtag/$1">#$1</a>', $text);
+        $text = preg_replace('/by @(\w+)|@(\w+)/', '', $text);
+        return $text;
     }
 
     /**
@@ -312,5 +323,29 @@ class Tweet
     public function getLikes()
     {
         return $this->likes;
+    }
+
+    /**
+     * Set tweetUrl
+     *
+     * @param string $tweetUrl
+     *
+     * @return Tweet
+     */
+    public function setTweetUrl($tweetUrl)
+    {
+        $this->tweetUrl = $tweetUrl;
+
+        return $this;
+    }
+
+    /**
+     * Get tweetUrl
+     *
+     * @return string
+     */
+    public function getTweetUrl()
+    {
+        return $this->tweetUrl;
     }
 }

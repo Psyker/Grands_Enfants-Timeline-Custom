@@ -16,7 +16,7 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        if($request->cookies->get('daily_req') == null){
+        if($request->cookies->get('daily_req') == null || $this->getDoctrine()->getRepository('AppBundle:Tweet')->findAll() == null){
             setcookie('daily_req', 1, time()+86400, "/");
             $tweets = $this->get('app.twitter')->get('statuses/user_timeline', [
                 'screen_name' => 'grands_enfants',
@@ -25,7 +25,9 @@ class DefaultController extends Controller
             foreach ($tweets as $tweet) {
                 $myTweet = new Tweet();
                 $myTweet->setCreatedAt(new \DateTime($tweet->created_at));
+                $myTweet->setTweetUrl("https://twitter.com/" .  $tweet->user->screen_name ."/status/" . $tweet->id_str);
                 $myTweet->setLikes($tweet->favorite_count);
+                $myTweet->setRetweets($tweet->retweet_count);
                 $myTweet->setImageUrl($tweet->entities->media[0]->media_url);
                 $mentions = [];
                 foreach ($tweet->entities->user_mentions as $mention) {
