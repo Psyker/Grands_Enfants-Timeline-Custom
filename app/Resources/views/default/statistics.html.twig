@@ -1,12 +1,17 @@
 {% embed 'base.html.twig' with {'title': 'Statitics'} %}
 
     {% block body %}
-        <h1>Statistics :</h1>
+        <div class="row">
+            <div class="col s12 m12 l4 offset-l4">
+                <h1 class="z-depth-1 page-subtitle animated bounceIn">Statistics</h1>
+            </div>
+        </div>
 
-
+        <h5>See your current stats about most popular #'s and categories</h5>
+        <div class="divider"></div>
         <div class="row">
             <div class="col s12 m6 l6">
-                <table class="striped">
+                <table class="bordered striped">
                     <thead>
                     <tr>
                         <th>Categories</th>
@@ -27,7 +32,7 @@
                 </table>
             </div>
             <div class="col s12 m6 l6">
-                <table class="striped">
+                <table class="bordered striped">
                     <thead>
                     <tr>
                         <th>Hashtags</th>
@@ -48,6 +53,7 @@
 
 
         </div>
+
 
     {% endblock %}
 

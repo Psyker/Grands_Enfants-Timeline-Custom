@@ -1,3 +1,14 @@
+body {
+    background: #EEEEEE;
+}
+
+table.striped > tbody > tr:nth-child(2n+1) {
+    background-color: #e4e4e4;
+}
+
+td, th {
+    padding: 15px 29px;
+}
 .card.large {
     height: 400px
 }
@@ -41,8 +52,7 @@ a.hashtag:hover {
 }
 
 .page-subtitle {
-    box-shadow: 0 0 11px rgba(0, 0, 0, 0.24);
     color: white;
-    background: #03A9F4 none repeat scroll 0% 0%;
+    background: #467d92;
     padding: 20px 60px;
 }
