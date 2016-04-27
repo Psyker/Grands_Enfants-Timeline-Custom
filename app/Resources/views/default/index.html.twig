@@ -3,8 +3,11 @@
 {% block body %}
 
 
-
-<h1 class="animated bounceIn">{{ subtitle }}</h1>
+<div class="row">
+    <div class="col s12 m12 l4 offset-l4">
+        <h1 class="page-subtitle animated bounceIn">{{ subtitle }}</h1>
+    </div>
+</div>
     {% for tweet in tweets %}
         {% if loop.index0 % tweetsPerRow == 0 %}
             <div class="row">

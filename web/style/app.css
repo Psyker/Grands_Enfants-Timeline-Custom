@@ -39,3 +39,10 @@ a.hashtag{
 a.hashtag:hover {
     color: #00b0ff;
 }
+
+.page-subtitle {
+    box-shadow: 0 0 11px rgba(0, 0, 0, 0.24);
+    color: white;
+    background: #03A9F4 none repeat scroll 0% 0%;
+    padding: 20px 60px;
+}
