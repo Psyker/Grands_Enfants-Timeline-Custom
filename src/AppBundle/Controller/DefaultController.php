@@ -54,7 +54,7 @@ class DefaultController extends Controller
          */
         public function hashtagAction($hashtag)
         {
-            return $this->render('default/index.html.twig', ['tweets' => $this->getDoctrine()->getRepository('AppBundle:Tweet')->findByHasgtag($hashtag)]);
+            return $this->render('default/index.html.twig', ['subtitle' => '#'.$hashtag,'tweets' => $this->getDoctrine()->getRepository('AppBundle:Tweet')->findByHasgtag($hashtag)]);
         }
 
         /**
@@ -63,7 +63,7 @@ class DefaultController extends Controller
 
         public function viewCategoryAction($category)
         {
-            return $this->render('default/index.html.twig', ['tweets' => $this->getDoctrine()->getRepository('AppBundle:Tweet')->findBy(['category' => $category])]);
+            return $this->render('default/index.html.twig', ['subtitle' => 'Categories : '.$category,'tweets' => $this->getDoctrine()->getRepository('AppBundle:Tweet')->findBy(['category' => $category])]);
         }
 
         /**
@@ -71,5 +71,16 @@ class DefaultController extends Controller
          */
         public function getAllCategoriesAction(){
             return $this->render('default/categories.html.twig', ['categories'=>$this->getDoctrine()->getRepository('AppBundle:Tweet')->findAllCategories()]);
+        }
+
+        /**
+         * @Route("/stats/", name="statistics")
+         */
+        public function viewStatsAction()
+        {
+
+            return $this->render('default/statistics.html.twig',
+                ['most_used_categories'=>$this->getDoctrine()->getRepository('AppBundle:Tweet')->findNthCategories(10),'most_used_hashtags' =>$this->getDoctrine()->getRepository('AppBundle:Tweet')->findNthHashtags(10)
+            ]);
         }
 }

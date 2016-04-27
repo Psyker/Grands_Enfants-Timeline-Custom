@@ -1,0 +1,57 @@
+{% embed 'base.html.twig' with {'title': 'Statitics'} %}
+
+    {% block body %}
+        <h1>Statistics :</h1>
+
+
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <table class="striped">
+                    <thead>
+                    <tr>
+                        <th>Categories</th>
+                        <th>Occurrences</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for category,occurrences in most_used_categories %}
+                        <tr>
+                            <td>
+                                <a href="{{ path('view_by_category', {'category': category}) }}">{{ category|upper }}</a>
+                            </td>
+                            <td>{{ occurrences }}</td>
+                        </tr>
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="col s12 m6 l6">
+                <table class="striped">
+                    <thead>
+                    <tr>
+                        <th>Hashtags</th>
+                        <th>Occurrences</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for hashtag,occurrences in most_used_hashtags %}
+                        <tr>
+                            <td><a href="{{ path('hashtag', {'hashtag': hashtag}) }}">#{{ hashtag }}</a></td>
+                            <td>{{ occurrences }}</td>
+                        </tr>
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+
+    {% endblock %}
+
+    {% block stylesheets %}
+    {% endblock %}
+
+{% endembed %}

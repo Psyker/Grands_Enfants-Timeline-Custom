@@ -4,14 +4,16 @@
 
 
 
-<h1>Bienvenue sur la Timeline de Grands_enfants !</h1>
+<h1>{{ subtitle }}</h1>
     {% for tweet in tweets %}
         {% if loop.index0 % tweetsPerRow == 0 %}
             <div class="row">
         {% endif %}
+
                 <div class="col s12 m12 l4">
                     {% embed 'template/tweet.html.twig' %}{% endembed %}
                 </div>
+
         {% if loop.index % tweetsPerRow == 0 %}
             </div>
         {% endif %}

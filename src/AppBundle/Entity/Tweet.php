@@ -262,7 +262,7 @@ class Tweet
     {
         $finalTitle = preg_replace('[http\S+]', '',$this->title);
         $finalTitle = preg_replace('/#(\w+)/', '<a href="/hashtag/$1">#$1</a>', $finalTitle);
-        $finalTitle = preg_replace('/@(\w+)/', '', $finalTitle);
+        $finalTitle = preg_replace('/by @(\w+)|@(\w+)/', '', $finalTitle);
         return $finalTitle;
     }
 

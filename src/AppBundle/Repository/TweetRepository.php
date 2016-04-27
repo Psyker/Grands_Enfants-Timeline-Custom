@@ -34,4 +34,44 @@ class TweetRepository extends \Doctrine\ORM\EntityRepository
         return $simplecat;
 
     }
+
+    public function findNthCategories($nbcategories)
+    {
+        $qb=$this->getEntityManager()->createQueryBuilder();
+            $results = $qb->select('tweet.category, COUNT(tweet.category) AS nbcat' )
+                ->from('AppBundle:Tweet', 'tweet')
+                ->groupBy('tweet.category')
+                ->orderBy('nbcat', 'DESC')
+                ->setMaxResults($nbcategories)
+                ->getQuery()
+                ->getResult();
+        $categories= [];
+        foreach($results as $result){
+            $categories[strtolower($result['category'])] = $result['nbcat'];
+        }
+        return $categories;
+    }
+
+    public function findNthHashtags($nbhashtags)
+    {
+        $qb = $this->getEntityManager()->createQueryBuilder();
+        $results = $qb->select('tweet.hashtags')
+            ->from('AppBundle:Tweet', 'tweet')
+            ->getQuery()
+            ->getScalarResult();
+        $hashtags= [];
+        foreach($results as $result){
+            array_push($hashtags,$result['hashtags']);
+        }
+        $finalHashtags = [];
+        foreach($hashtags as $hashtag) {
+            foreach (explode(',', $hashtag) as $hash) {
+                array_push($finalHashtags, strtolower($hash));
+            }
+        }
+        $finalHash= array_count_values($finalHashtags);
+        asort($finalHash);
+        return array_slice(array_reverse($finalHash), 0, $nbhashtags);
+
+    }
 }
