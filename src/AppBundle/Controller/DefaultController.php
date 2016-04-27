@@ -68,7 +68,7 @@ class DefaultController extends Controller
 
         public function viewCategoryAction($category)
         {
-            return $this->render('default/index.html.twig', ['subtitle' => 'Categories : '.$category,'tweets' => $this->getDoctrine()->getRepository('AppBundle:Tweet')->findBy(['category' => $category])]);
+            return $this->render('default/index.html.twig', ['subtitle' => ucfirst($category) . ' category' ,'tweets' => $this->getDoctrine()->getRepository('AppBundle:Tweet')->findBy(['category' => $category])]);
         }
 
         /**
