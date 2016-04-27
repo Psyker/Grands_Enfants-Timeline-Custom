@@ -1,18 +1,21 @@
 .card.large {
-  height: 400px
+    height: 400px
 }
 
-.category{
-  float: right;
+a.category {
+    float: right;
     font-size: 13px;
-  color: #cacaca;
+    color: #cacaca !important;
+    cursor: pointer;
+    margin-right: 0 !important;
 }
 
-.category::before{
+.category::before {
     font-family: FontAwesome;
     content: '\f02b';
     margin-right: 10px;
 }
+
 a.startup {
     font-size: 13px;
 }
@@ -24,8 +27,15 @@ a.startup {
 
 }
 
-h1{
+h1 {
     font-size: 30px;
     text-align: center;
 }
 
+a.hashtag{
+      transition: all 0.3s;
+}
+
+a.hashtag:hover {
+    color: #00b0ff;
+}

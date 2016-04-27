@@ -14,25 +14,30 @@
 <ul id="dropdown1" class="dropdown-content">
     {{ render(controller('AppBundle:Default:getAllCategories')) }}
 </ul>
-<nav class="orange-text.text-accent-2" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="{{ path('homepage') }}" class="brand-logo center">Grands_enfants</a>
-        <ul class="left hide-on-med-and-down">
-            <li><a class="dropdown-button" href="#" data-activates="dropdown1">Categories<i
-                            class="fa fa-caret-down right"></i></a></li>
-            <li><a href="{{ path('statistics') }}">Statistics</a></li>
-        </ul>
+<header>
+    <nav class="orange-text.text-accent-2" role="navigation">
+        <div class="nav-wrapper container"><a id="logo-container" href="{{ path('homepage') }}"
+                                              class="brand-logo center">Grands_enfants</a>
+            <ul class="left hide-on-med-and-down">
+                <li><a class="dropdown-button" href="#" data-activates="dropdown1">Categories<i
+                                class="fa fa-caret-down right"></i></a></li>
+                <li><a href="{{ path('statistics') }}">Statistics</a></li>
+            </ul>
 
-        <ul id="nav-mobile" class="side-nav">
-            <li><a href="#">Navbar Link</a></li>
-        </ul>
-        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul id="nav-mobile" class="side-nav">
+                <li><a href="#">Navbar Link</a></li>
+            </ul>
+            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+        </div>
+    </nav>
+</header>
+
+
+<main>
+    <div class="container">
+        {% block body %}{% endblock %}
     </div>
-</nav>
-
-
-<div class="container">
-    {% block body %}{% endblock %}
-</div>
+</main>
 
 <footer class="page-footer">
     <div class="container">
@@ -45,7 +50,7 @@
         </div>
         <div class="footer-copyright">
             <div class="container">
-                Made by <a class="orange-text text-lighten-3" href="#">Théo</a>
+                Made by <a class="orange-text text-lighten-3" href="#">Brogrammers</a>
             </div>
         </div>
     </div>

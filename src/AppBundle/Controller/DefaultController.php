@@ -44,7 +44,7 @@ class DefaultController extends Controller
                 $this->getDoctrine()->getManager()->flush();
             }
         }
-        return $this->render('default/index.html.twig', ['subtitle' => 'Derniers tweets', 'tweets' => $this->getDoctrine()->getRepository('AppBundle:Tweet')->findAll()]);
+        return $this->render('default/index.html.twig', ['subtitle' => 'Last tweets', 'tweets' => $this->getDoctrine()->getRepository('AppBundle:Tweet')->findAll()]);
 
 
     }
@@ -80,7 +80,7 @@ class DefaultController extends Controller
         {
 
             return $this->render('default/statistics.html.twig',
-                ['most_used_categories'=>$this->getDoctrine()->getRepository('AppBundle:Tweet')->findNthCategories(10),'most_used_hashtags' =>$this->getDoctrine()->getRepository('AppBundle:Tweet')->findNthHashtags(10)
+                ['most_used_categories'=> $this->getDoctrine()->getRepository('AppBundle:Tweet')->findNthCategories(10), 'most_used_hashtags' => $this->getDoctrine()->getRepository('AppBundle:Tweet')->findNthHashtags(10)
             ]);
         }
 }
