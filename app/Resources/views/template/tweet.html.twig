@@ -7,6 +7,6 @@
     </div>
     <div class="card-action">
         <a class="startup" href="{{ tweet.url }}">{{ tweet.mentions|join |default("Read More...")}}</a>
-        <a class="category">{{ tweet.category|upper }}</a>
+        <a class="category" href="{{ path('view_by_category', {'category': tweet.category }) }}">{{ tweet.category|upper }}</a>
     </div>
 </div>
