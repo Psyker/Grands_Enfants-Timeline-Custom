@@ -44,7 +44,7 @@ class DefaultController extends Controller
                 $this->getDoctrine()->getManager()->flush();
             }
         }
-        return $this->render('default/index.html.twig', ['tweets' => $this->getDoctrine()->getRepository('AppBundle:Tweet')->findAll()]);
+        return $this->render('default/index.html.twig', ['subtitle' => 'Derniers tweets', 'tweets' => $this->getDoctrine()->getRepository('AppBundle:Tweet')->findAll()]);
 
 
     }
