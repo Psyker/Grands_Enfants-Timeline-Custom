@@ -1,5 +1,9 @@
-Exercice Reputation Squad Lab 2016
+Grands_Enfants-Timeline-Custom
 =========
-Exercice de récupération et manipulation des tweets du Twitter grands_enfants dans le cadre de l'obtention d'un stage chez Reputation Squad.
+Application realized with Symfony 3 whose aim is to manipulate the data of the twiiter API and generate statistics
 
-A Symfony project created on April 25, 2016, 3:34 pm.
+To install :
+- Clone the project
+- composer install
+- create the database : bin/console doctrine:database:create
+- Start your server : bin/console server:run
